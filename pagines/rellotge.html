@@ -1,43 +1,52 @@
 <!DOCTYPE html>
-<html lang=”ca">
+
+
+<html>
 
 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=0.2">
-   <title>Hola Món</title>
+   <title>Rellotge</title>
+   <meta charset="UTF-8" />
+   <link rel="stylesheet" href="../estil/general.css">
+  
    <style>
-       body {
-           background-image: url(../imatges/hello_world.png);
-           background-size: cover;
+       h1 {
+           font-size: 50px;
+           text-align: center;
        }
 
 
-       header,
-       footer {
-           color: white;
-           text-align: left;
-       }
-
-
-       h1,
-       p,
-       a {
-           color: white;
+       div {
+           font-size: 60px;
+           color: blue;
            text-align: center;
        }
    </style>
+   <script>
+       function startTime() {
+           var today = new Date();
+           var h = today.getHours();
+           var m = today.getMinutes();
+           var s = today.getSeconds();
+           m = checkTime(m);
+           s = checkTime(s);
+           document.getElementById('txt').innerHTML =
+               h + ":" + m + ":" + s;
+           var t = setTimeout(startTime, 500);
+       }
+       function checkTime(i) {
+           if (i < 10) { i = "0" + i }; // add zero in front of numbers < 10
+           return i;
+       }
+   </script>
 </head>
 
 
-<body>
-   <header>ProvaWeb: una web de prova.</header>
-   <h1>Hola Món!</h1>
-   <p>Si això va bé ja haurem complerta la tradició de fer un Hola Món!</p>
-   <p>En aquest cas hem fet un hola món usant html ;-)</p>
-   <footer>
-   <a href="../index.html">home</a>
-</footer>
+<body onload="startTime()">
+   <header>PrevaWeb: una web de prova.</header>
+   <h1> Rellotge Aplicacions Web </h1>
+   <div id="txt"></div>
+   <footer><a href="../index.html">home</a></footer>
 </body>
 
 
